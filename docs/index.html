@@ -201,6 +201,7 @@ font-style: italic;
   <li><a href="#bienIdPut"><code><span class="http-method">put</span> /bien/{id}</code></a></li>
   <li><a href="#bienesGet"><code><span class="http-method">get</span> /bienes</code></a></li>
   <li><a href="#bienesPost"><code><span class="http-method">post</span> /bienes</code></a></li>
+  <li><a href="#bienesResponsableCiGet"><code><span class="http-method">get</span> /bienes/responsable/{ci}</code></a></li>
   </ul>
   <h4><a href="#Clasificacion">Clasificacion</a></h4>
   <ul>
@@ -331,10 +332,10 @@ font-style: italic;
   "ClasificacionD" : "ClasificacionD",
   "EstadoD" : "EstadoD",
   "UbicacionD" : "UbicacionD",
-  "IdBien" : 0,
-  "Responsable" : 6,
+  "IdBien" : "IdBien",
+  "Responsable" : 0,
   "Calificacion" : "Calificacion",
-  "Precio" : 1
+  "Precio" : 6
 }</code></pre>
 
 
@@ -430,18 +431,18 @@ font-style: italic;
   "ClasificacionD" : "ClasificacionD",
   "EstadoD" : "EstadoD",
   "UbicacionD" : "UbicacionD",
-  "IdBien" : 0,
-  "Responsable" : 6,
+  "IdBien" : "IdBien",
+  "Responsable" : 0,
   "Calificacion" : "Calificacion",
-  "Precio" : 1
+  "Precio" : 6
 }, {
   "ClasificacionD" : "ClasificacionD",
   "EstadoD" : "EstadoD",
   "UbicacionD" : "UbicacionD",
-  "IdBien" : 0,
-  "Responsable" : 6,
+  "IdBien" : "IdBien",
+  "Responsable" : 0,
   "Calificacion" : "Calificacion",
-  "Precio" : 1
+  "Precio" : 6
 } ]</code></pre>
 
 
@@ -491,6 +492,71 @@ font-style: italic;
     <h4 class="field-label">200</h4>
     Bien creado exitosamente
         <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Error al realizar la consulta
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Error de conexion con la base de datos
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="bienesResponsableCiGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /bienes/responsable/{ci}</code></pre></div>
+    <div class="method-summary">Obtener una lista de todos los bienes por responsable (<span class="nickname">bienesResponsableCiGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">ci (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ci del responsable del cual se quiere obtener sus bienes </div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#inline_response_200">inline_response_200</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "ClasificacionD" : "ClasificacionD",
+  "EstadoD" : "EstadoD",
+  "UbicacionD" : "UbicacionD",
+  "IdBien" : "IdBien",
+  "Responsable" : 0,
+  "Calificacion" : "Calificacion",
+  "Precio" : 6
+}, {
+  "ClasificacionD" : "ClasificacionD",
+  "EstadoD" : "EstadoD",
+  "UbicacionD" : "UbicacionD",
+  "IdBien" : "IdBien",
+  "Responsable" : 0,
+  "Calificacion" : "Calificacion",
+  "Precio" : 6
+} ]</code></pre>
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Bienes obtenidos exitosamente
+        
     <h4 class="field-label">404</h4>
     Error al realizar la consulta
         <a href="#"></a>
@@ -1280,7 +1346,8 @@ font-style: italic;
   "NroTransaccion" : 0.80082819046101150206595775671303272247314453125,
   "UbicacionD" : "UbicacionD",
   "CI" : 6.02745618307040320615897144307382404804229736328125,
-  "FechaTransaccion" : "FechaTransaccion"
+  "FechaTransaccion" : "FechaTransaccion",
+  "IdBien" : "IdBien"
 }</code></pre>
 
 
@@ -1378,14 +1445,16 @@ font-style: italic;
   "NroTransaccion" : 0.80082819046101150206595775671303272247314453125,
   "UbicacionD" : "UbicacionD",
   "CI" : 6.02745618307040320615897144307382404804229736328125,
-  "FechaTransaccion" : "FechaTransaccion"
+  "FechaTransaccion" : "FechaTransaccion",
+  "IdBien" : "IdBien"
 }, {
   "ClasificacionD" : "ClasificacionD",
   "Nombre" : "Nombre",
   "NroTransaccion" : 0.80082819046101150206595775671303272247314453125,
   "UbicacionD" : "UbicacionD",
   "CI" : 6.02745618307040320615897144307382404804229736328125,
-  "FechaTransaccion" : "FechaTransaccion"
+  "FechaTransaccion" : "FechaTransaccion",
+  "IdBien" : "IdBien"
 } ]</code></pre>
 
 
@@ -1754,6 +1823,7 @@ font-style: italic;
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
   "Nombre" : "Nombre",
+  "TipoUsuario" : 6.02745618307040320615897144307382404804229736328125,
   "CI" : 0,
   "Contrasena" : "Contrasena",
   "EntidadD" : "EntidadD"
@@ -1850,11 +1920,13 @@ font-style: italic;
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
   "Nombre" : "Nombre",
+  "TipoUsuario" : 6.02745618307040320615897144307382404804229736328125,
   "CI" : 0,
   "Contrasena" : "Contrasena",
   "EntidadD" : "EntidadD"
 }, {
   "Nombre" : "Nombre",
+  "TipoUsuario" : 6.02745618307040320615897144307382404804229736328125,
   "CI" : 0,
   "Contrasena" : "Contrasena",
   "EntidadD" : "EntidadD"
@@ -1948,7 +2020,8 @@ font-style: italic;
     <h3><a name="bien"><code>bien</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">IdUbicacion (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+      <div class="param">IdBien (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IdUbicacion (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
 <div class="param">IdClasificacion (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
 <div class="param">IdEstado (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
 <div class="param">Responsable (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
@@ -2014,7 +2087,7 @@ font-style: italic;
     <h3><a name="inline_response_200"><code>inline_response_200</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">IdBien (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+      <div class="param">IdBien (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">UbicacionD (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">ClasificacionD (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">EstadoD (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -2052,6 +2125,7 @@ font-style: italic;
     
     <div class="field-items">
       <div class="param">NroTransaccion (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">IdBien (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">UbicacionD (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">ClasificacionD (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">CI (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
@@ -2075,13 +2149,14 @@ font-style: italic;
 <div class="param">Nombre (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">Contrasena (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">EntidadD (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TipoUsuario (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="transaccion"><code>transaccion</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">IdBien (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+      <div class="param">IdBien (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">IdUsuario (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
 <div class="param">FechaTransaccion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
@@ -2090,7 +2165,7 @@ font-style: italic;
     <h3><a name="transaccion_1"><code>transaccion_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">IdBien (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+      <div class="param">IdBien (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">IdUsuario (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
 <div class="param">FechaTransaccion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
@@ -2117,6 +2192,7 @@ font-style: italic;
 <div class="param">Nombre (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">Contrasena (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">IdEntidad (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">TipoUsuario (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -2127,6 +2203,7 @@ font-style: italic;
 <div class="param">Nombre (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">Contrasena (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">IdEntidad (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">TipoUsuario (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   </body>
